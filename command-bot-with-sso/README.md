@@ -32,21 +32,21 @@ This is a simple command bot that implements single sign-on feature to retrieve 
 
   1. Clone the repo to your local workspace or directly download the source code.
   1. Open the project in Visual Studio Code.
-  1. Open Debug View (`Ctrl+Shift+D`) and select "Debug (Edge)" or "Debug (Chrome)" in dropdown list.
+  1. Open Debug View (`Ctrl+Shift+D`) and select "Debug in Teams (Edge)" or "Debug in Teams (Chrome)" in dropdown list.
   1. Press "F5" to open a browser window and then select your package to view contact exporter sample app.
 
 - From TeamsFx CLI
-  1. Install [ngrok](https://ngrok.com/download).
-  1. Sign up an ngrok account in https://dashboard.ngrok.com/signup. Copy your personal ngrok authtoken from https://dashboard.ngrok.com/get-started/your-authtoken.
-  1. Start your local tunnel service by running the command `ngrok http 3978 --authtoken=<your-personal-ngrok-authtoken>`.
-  1. In the `env/.env.local` file, fill in the values for `BOT_DOMAIN` and `BOT_ENDPOINT` with your ngrok URL.
+  1. Install [dev tunnel cli](https://aka.ms/teamsfx-install-dev-tunnel).
+  1. Login with your M365 Account using the command `devtunnel user login`.
+  1. Start your local tunnel service by running the command `devtunnel host -p 3978 --protocol http --allow-anonymous`.
+  1. In the `env/.env.local` file, fill in the values for `BOT_DOMAIN` and `BOT_ENDPOINT` with your dev tunnel URL.
      ```
-     BOT_DOMAIN=sample-id.ngrok.io
-     BOT_ENDPOINT=https://sample-id.ngrok.io
+     BOT_DOMAIN=sample-id-3978.devtunnels.ms
+     BOT_ENDPOINT=https://sample-id-3978.devtunnels.ms
      ```
-  1. Run command: `teamsfx provision --env local` .
-  1. Run command: `teamsfx deploy --env local` .
-  1. Run command: `teamsfx preview --env local` .
+  1. Run command: `teamsapp provision --env local` .
+  1. Run command: `teamsapp deploy --env local` .
+  1. Run command: `teamsapp preview --env local` .
 
 ### Deploy the app to Azure
 
@@ -59,16 +59,16 @@ This is a simple command bot that implements single sign-on feature to retrieve 
   1. Click `Deploy` or open the command palette and select: `Teams: Deploy`.
 
 - From TeamsFx CLI
-  1. Run command: `teamsfx account login azure`.
-  1. Run command: `teamsfx provision --env dev`.
-  1. Run command: `teamsfx deploy --env dev`.
+  1. Run command: `teamsapp auth login azure`.
+  1. Run command: `teamsapp provision --env dev`.
+  1. Run command: `teamsapp deploy --env dev`.
 
 ### Preview the app in Teams
 
 - From VSCode:
   1. Once deployment is completed, you can preview the APP running in Azure. In Visual Studio Code, open `Run and Debug` and select `Launch Remote (Edge)` or `Launch Remote (Chrome)` in the dropdown list and Press `F5` or green arrow button to open a browser.
 - From TeamsFx CLI:
-  1. Run command: `teamsfx preview --env dev`.
+  1. Run command: `teamsapp preview --env dev`.
 
 ## Version History
 
@@ -80,3 +80,7 @@ This is a simple command bot that implements single sign-on feature to retrieve 
 ## Feedback
 
 We really appreciate your feedback! If you encounter any issue or error, please report issues to us following the [Supporting Guide](https://github.com/OfficeDev/TeamsFx-Samples/blob/dev/SUPPORT.md). Meanwhile you can make [recording](https://aka.ms/teamsfx-record) of your journey with our product, they really make the product better. Thank you!
+
+## Limitation Section
+
+SSO for command bot only supports personal chat. This bot may not work if you add it to a team or a group chat.
