@@ -24,6 +24,7 @@
         "color": "color.png"
     },
     "accentColor": "#FFFFFF",
+    "configurableTabs": [],
     "staticTabs": [
         {
             "entityId": "index0",

@@ -27,6 +27,7 @@
     "accentColor": "#FFFFFF",
     "bots": [],
     "composeExtensions": [],
+    "configurableTabs": [],
     "staticTabs": [
         {
             "entityId": "index",
@@ -35,8 +36,8 @@
             "websiteUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
             "scopes": [
                 "personal",
-                "team",
-                "groupChat"
+                "groupChat",
+                "team"
             ]
         }
     ],

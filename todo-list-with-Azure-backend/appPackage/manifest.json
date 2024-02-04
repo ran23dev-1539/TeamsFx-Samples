@@ -25,6 +25,7 @@
     "accentColor": "#FFFFFF",
     "bots": [],
     "composeExtensions": [],
+    "configurableTabs": [],
     "staticTabs": [
         {
             "entityId": "index0",
